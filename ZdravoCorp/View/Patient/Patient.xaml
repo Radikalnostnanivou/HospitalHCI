@@ -1,0 +1,233 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.Patient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Patient"
+        mc:Ignorable="d"
+        Title="{Binding}" Height="500" Width="1000">
+    <Grid HorizontalAlignment="Stretch" Background="#112847">
+        <TabControl SelectionChanged="TabControl_SelectionChanged" Grid.ColumnSpan="3" Margin="30,30,30,30">
+            <TabItem Header="Osnovni podaci" Style="{DynamicResource TabsStyle}">
+                <Grid 
+                    Background="#FFFFFF"
+                    Margin="30,10,30,0" 
+                    HorizontalAlignment="Stretch"
+                >
+
+
+                    <Image HorizontalAlignment="Left" Height="168" Margin="30,26,0,0" VerticalAlignment="Top" Width="130" Grid.ColumnSpan="2"/>
+                    <Button Content="Postavi sliku" Style="{DynamicResource BlueButton}" Margin="30,206,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="40"/>
+                    <Label x:Name ="NameLabel" Style="{DynamicResource PatientLabel}" Content="Ime"  Margin="200,26,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label x:Name="SurnameLabel" Style="{DynamicResource PatientLabel}" Content="Prezime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,61,0,0" Grid.Column="1"/>
+                    <Label x:Name="DateOfBirthLabel" Style="{DynamicResource PatientLabel}" Content="Datum rodjenja" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,94,0,0" Grid.Column="1"/>
+                    <Label x:Name="GenderLabel" Style="{DynamicResource PatientLabel}" Content="Pol " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,126,0,0" Grid.Column="1"/>
+                    <Label x:Name="JMBGLabel" Style="{DynamicResource PatientLabel}" Content="JMBG " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,161,0,0" Grid.Column="1"/>
+                    <Label x:Name="TelephoneLabel" Style="{DynamicResource PatientLabel}" Content="Kontakt telefon " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,194,0,0" Grid.Column="1"/>
+                    <Label x:Name="EmailLabel" Style="{DynamicResource PatientLabel}" Content="Email " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="200,226,0,0" Grid.Column="1" />
+
+                    <TextBox x:Name="NameTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="NoWrap" Width="200"  HorizontalAlignment="left" VerticalAlignment="Top" Margin="320,30,0,0" Grid.Column="1"/>
+                    <TextBox x:Name="SurnameTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="Wrap" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,65,0,0" Grid.Column="1"/>
+                    <TextBox x:Name="BirthTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="Wrap" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,98,0,0" Grid.Column="1"/>
+                    <TextBox x:Name="JMBGTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="Wrap" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,165,0,0" Grid.Column="1"/>
+                    <TextBox x:Name="PhoneTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="Wrap" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,198,0,0" Grid.Column="1"/>
+                    <TextBox x:Name="EmailTextBox" Style="{DynamicResource InfoTextBox}" TextWrapping="Wrap" Width="200"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="320,230,0,0" Grid.Column="1"/>
+                    <RadioButton x:Name="MaleButton" Style="{DynamicResource RadioButton}" Content="Muško" Margin="320,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+                    <RadioButton x:Name="FemaleButton" Style="{DynamicResource RadioButton}" Content="Žensko" Margin="400,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Button Style="{DynamicResource BlueButton}" Content="Oceni bolnicu" Click="HospitalSurvey_Click" Margin="664,276,0,0" Width="120" Height="40" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pregledi" Style="{DynamicResource TabsStyle}">
+                <Grid 
+                    Background="#FFFFFF" 
+                    Margin="30,10,30,10" Height="385" >
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="168*"/>
+                            <ColumnDefinition Width="269*"/>
+                        </Grid.ColumnDefinitions>
+                        <DataGrid x:Name ="PatientAppointmentTable"
+                            Style="{DynamicResource PatientTables}"
+                            AlternationCount="2"
+                            HorizontalAlignment="Left"
+                            Height="268"
+                            Margin="14,82,0,0" 
+                            VerticalAlignment="Top" 
+                            Width="846"
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="False"
+                            SelectionMode="Single" 
+                            IsReadOnly="True" 
+                            Grid.ColumnSpan="2"
+                            SelectionChanged="PatientAppointmentTable_SelectionChanged">
+
+                            <DataGrid.Columns >
+                                <DataGridTextColumn Header="Pocetak" Binding="{Binding startDate}" Width="*"/>
+                                <DataGridTextColumn Header="Kraj" Binding="{Binding endDate}" Width="*"/>
+                                <DataGridTextColumn Header="Soba" Binding="{Binding Room.DesignationCode}" Width="*"/>
+                                <DataGridTextColumn x:Name ="Doctor" Header="Doktor" Binding="{Binding NameSurname}" Width="*"/>
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        <Button 
+                            Style="{DynamicResource BlueButton}"
+                            Content="Dodaj" 
+                            HorizontalAlignment="Left" 
+                            Margin="98,30,0,0" 
+                            VerticalAlignment="Top"
+                            Click="Add_Appointment" 
+                                Height="40" 
+                                Width="120"/>
+                        <Button
+                            Style="{DynamicResource BlueButton}"
+                            Content="Izmeni" 
+                            HorizontalAlignment="Left" 
+                            Margin="18,30,0,0" 
+                            VerticalAlignment="Top"
+                            Click="Change_Appointment" 
+                            Width="120"
+                            Height="40" Grid.Column="1"
+                                />
+                        <Button 
+                            Style="{DynamicResource CancelButton}"
+                            Content="Obriši" 
+                            HorizontalAlignment="Left" 
+                            Margin="285,30,0,0" 
+                            VerticalAlignment="Top" 
+                            RenderTransformOrigin="0.265,-0.198"
+                            Click="Delete_Appointment" 
+                            Width="120" 
+                            Height="40" Grid.Column="1"
+                        />
+
+                    </Grid>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Karton" Style="{DynamicResource TabsStyle}"  VerticalAlignment="Top">
+                <Grid 
+                    Background="#FFFFFF" 
+                    Margin="30,30,30,30" 
+                >
+                    <Label 
+                        Style="{DynamicResource PatientLabel}"
+                        Content="Visina" 
+                        Margin="40,25,0,0" 
+                        Height="30" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"/>
+                    <TextBox 
+                        Style="{DynamicResource InfoTextBox}"
+                        TextWrapping="Wrap" 
+                        Text="{Binding Path=Height}"
+                        Width="200"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="145,25,0,0"/>
+                    <Label 
+                        Style="{DynamicResource PatientLabel}"
+                        Content="Tezina"
+                        Height="30" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top"
+                        Margin="40,70,0,0"/>
+                    <TextBox 
+                        Style="{DynamicResource InfoTextBox}"
+                        TextWrapping="Wrap" 
+                        Text="{Binding Path=Weight}" 
+                        Width="200"
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" 
+                        Margin="145,70,0,0"/>
+                    <Label 
+                        Style="{DynamicResource PatientLabel}"
+                        Content="Krvna grupa"
+                        Height="30" 
+                        HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Margin="40,115,0,0"/>
+                    <ComboBox Margin="145,115,0,0" HorizontalAlignment="Left" 
+                        VerticalAlignment="Top" Width="200"/>
+                    <Label Content="Obavljeni pregledi" HorizontalAlignment="Left" 
+                        VerticalAlignment="Center" Margin="40,5,0,0"/>
+                    <DataGrid x:Name ="DoneAppointments"
+                            Style="{DynamicResource PatientTables}"
+                            AlternationCount="2"
+                            HorizontalAlignment="Left"
+                            Height="140"
+                            Margin="40,186,0,0" 
+                            VerticalAlignment="Top" 
+                            Width="604"
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="False"
+                            SelectionMode="Single" 
+                            IsReadOnly="True">
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Pocetak" Binding="{Binding startDate}" Width="*"/>
+                            <DataGridTextColumn Header="Kraj" Binding="{Binding endDate}" Width="*"/>
+                            <DataGridTextColumn Header="Soba" Binding="{Binding Room.DesignationCode}" Width="*"/>
+                            <DataGridTextColumn Header="Doktor" Binding="{Binding NameSurname}" Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button 
+                        Style="{DynamicResource BlueButton}"
+                        Content="Alergeni" HorizontalAlignment="Left" Margin="479,25,0,0" VerticalAlignment="Top"
+                            Width="120" Height="40"
+                        Click="Allergies_Click"/>
+                    <Button 
+                        Style="{DynamicResource BlueButton}"
+                        Content="Istorija bolesti" HorizontalAlignment="Left" Margin="479,70,0,0" VerticalAlignment="Top"
+                        Width="120" Height="40" Click="MedHistory_Click"/>
+                    <Button 
+                        Click="Anamnesis_Click"
+                        Style="{DynamicResource BlueButton}"
+                        Content="Prikaz izvestaja" HorizontalAlignment="Left" Margin="479,115,0,0" VerticalAlignment="Top"
+                        Width="120" Height="40"/>
+                </Grid>
+
+            </TabItem>
+            <TabItem Header="Terapije"  Style="{DynamicResource TabsStyle}" >
+                <Grid 
+                    Background="#FFFFFF" 
+                >
+                    <Label Content="Trenutne terapije" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.995,2.18" Margin="40,25,0,0"/>
+                    <DataGrid x:Name ="CurrentTherapies"
+                            Style="{DynamicResource PatientTables}"
+                            AlternationCount="2"
+                            HorizontalAlignment="Center"
+                            Height="226" 
+                            VerticalAlignment="Center" 
+                            Width="854"
+                            ItemsSource="{Binding}"
+                            AutoGenerateColumns="False"
+                            SelectionMode="Single" 
+                            IsReadOnly="True">
+
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Header="Lek" Binding="{Binding Namee}" Width="*"/>
+                            <DataGridTextColumn Header="Trajanje terapije (u danima)" Binding="{Binding DurationDays}" Width="*"/>
+                            <DataGridTextColumn Header="Broj dnevnih doza" Binding="{Binding TimesADay}" Width="*"/>
+                            <DataGridTemplateColumn Header="Notifikacije" Width="*">
+                                <DataGridTemplateColumn.CellTemplate> 
+                                    <DataTemplate>
+                                        <Button Click="Button_Click" Content="Notifikacije" Style="{DynamicResource BlueButton}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox HorizontalAlignment="Left" Height="25" Margin="774,28,0,0" TextWrapping="Wrap" Text="Pretraga" VerticalAlignment="Top" Width="120"/>
+                    <Button Content="Nedeljni izvestaj" Style="{DynamicResource BlueButton}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="774,330,0,0" Width="120" Height="40"/>
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+        <Button Style="{DynamicResource CancelButton}" Click="LogOut_Click" Content="Odjavite se" Width="120" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" />
+
+
+
+
+    </Grid>
+</Window>

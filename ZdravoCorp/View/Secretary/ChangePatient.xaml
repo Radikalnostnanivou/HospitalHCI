@@ -1,0 +1,35 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.ChangePatient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        mc:Ignorable="d"
+        Title="ChangePatient" Height="550" Width="850" >
+    <Grid>
+        <Label Content="Korisničko ime:" Style="{DynamicResource SecretaryLabel}" Margin="150,20,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Content="Loznka:" Style="{DynamicResource SecretaryLabel}" Margin="150,55,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Ime:" Style="{DynamicResource SecretaryLabel}" Margin="150,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Prezime:" Style="{DynamicResource SecretaryLabel}" Margin="150,125,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="JMBG:" Style="{DynamicResource SecretaryLabel}" Margin="150,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Email:" Style="{DynamicResource SecretaryLabel}" Margin="150,195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Broj telefona:" Style="{DynamicResource SecretaryLabel}" Margin="150,230,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Adresa:" Style="{DynamicResource SecretaryLabel}" Margin="150,265,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Pol:" Style="{DynamicResource SecretaryLabel}" Margin="150,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Datum rođenja:" Style="{DynamicResource SecretaryLabel}" Margin="150,335,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox TextWrapping="Wrap" Margin="350,20,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Username, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,55,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Password, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,90,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Namee, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,125,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Surname, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBox TextWrapping="Wrap" Margin="350,160,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Jmbg, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,195,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,230,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="350,265,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Address, UpdateSourceTrigger=PropertyChanged}"/>
+        <RadioButton Name="MaleButton" Style="{DynamicResource SecretaryRadioButton}" Content="Male" Margin="350,300,0,0" IsChecked="True" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton Name="FemaleButton" Style="{DynamicResource SecretaryRadioButton}" Content="Female" Margin="450,300,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <DatePicker Margin="350,335,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" SelectedDate="{Binding Path=DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Odustani" Style="{DynamicResource SecretaryCancelButton}" Margin="250,415,0,0"  Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="CancelChange_Click"/>
+        <Button Content="Izmni karton" Style="{DynamicResource SecretaryButtons}" Margin="500,415,0,0" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="MedicalRecordChange_Click"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Employees.Employees"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View.Employees"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="430">
+    <Grid>
+        <TextBox HorizontalAlignment="Center"
+                     Margin="0,15,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Path=SearchBoxText, UpdateSourceTrigger=PropertyChanged}"  
+                     VerticalAlignment="Top" 
+                     Width="162"
+                     Style="{DynamicResource ManagerSearch}"
+                     Tag="{p:Loc Search}"
+                     Height="42"/>
+
+        <DataGrid x:Name="ActionTable" 
+                      ItemsSource="{Binding Employees}" 
+                      Margin="0,70,0,0" 
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single" 
+                      IsReadOnly="True"
+                      Background="Transparent" 
+                      CanUserResizeRows="False"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      TextBlock.TextAlignment="Left"
+                      FontSize="13"
+                      Style="{DynamicResource ManagerTables}"
+                      SelectedItem="{Binding SelectedEmployee}"
+                      BorderThickness="2"
+                      HorizontalGridLinesBrush="Transparent"
+                      VerticalGridLinesBrush="Transparent" 
+                      >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{p:Loc Name}" Binding="{Binding Name}" ElementStyle="{DynamicResource WrapText}" Width="130"/>
+                <DataGridTextColumn Header="{p:Loc Pay}" Binding="{Binding Pay}" ElementStyle="{DynamicResource WrapText}" Width="*"/>
+                <DataGridTextColumn Header="{p:Loc Type}" Binding="{Binding Type}" ElementStyle="{DynamicResource WrapText}" Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ViewCommand}"/>
+            </DataGrid.InputBindings>
+        </DataGrid>
+    </Grid>
+</UserControl>

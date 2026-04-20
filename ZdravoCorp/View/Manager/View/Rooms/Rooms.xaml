@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Rooms.Rooms"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View"
+             xmlns:viewModel="clr-namespace:ZdravoCorp.View.Manager.ViewModel" 
+             xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="430">
+    <Grid>
+        <Button HorizontalAlignment="Left" 
+                Margin="8,16,0,0" 
+                VerticalAlignment="Top" 
+                Height="42" 
+                Width="48"
+                Command="{Binding AddRoomCommand}"
+                Style="{DynamicResource ManagerButtons}">
+            <StackPanel>
+                <svgc:SvgViewbox Source="\Resources\Icons\add-all.svg" Width="28" Height="25"/>
+                <Label  Content="{p:Loc Add}" 
+                        Style="{DynamicResource ButtonLabel}" 
+                        FontSize="8"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Padding="0,0,0,0"
+                        Height="13" Width="40"/>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" 
+                Margin="61,16,0,0" 
+                VerticalAlignment="Top" 
+                Height="42" 
+                Width="48"
+                Style="{DynamicResource ManagerButtons}"
+                Command="{Binding RenovationsCommand}">
+            <StackPanel>
+                <svgc:SvgViewbox Source="\Resources\Icons\timecard.svg" Width="28" Height="25"/>
+                <Label  Content="{p:Loc Renovate}" 
+                        Style="{DynamicResource ButtonLabel}" 
+                        FontSize="8"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Top"
+                        Padding="0,0,0,0"
+                        Height="13" Width="40"/>
+            </StackPanel>
+        </Button>
+
+        <DataGrid x:Name="RoomTable" 
+                      ItemsSource="{Binding RoomsCollection}" 
+                      Margin="0,70,0,0" 
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single" 
+                      IsReadOnly="True"
+                      Background="Transparent" 
+                      CanUserResizeRows="False"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      TextBlock.TextAlignment="Justify"
+                      FontSize="13"
+                      Style="{DynamicResource ManagerTables}"
+                      BorderThickness="2"
+                      HorizontalGridLinesBrush="Transparent"
+                      VerticalGridLinesBrush="Transparent" 
+                      SelectedIndex="{Binding SelectedIndex}"
+                      SelectedItem="{Binding SelectedRoom}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{p:Loc Floor}" Binding="{Binding Floor}" ElementStyle="{DynamicResource WrapText}" Width="55"/>
+                <DataGridTextColumn Header="{p:Loc Designation}" Binding="{Binding DesignationCode}" ElementStyle="{DynamicResource WrapText}" Width="*"/>
+                <DataGridTextColumn Header="{p:Loc Size}" Binding="{Binding SurfaceArea}" ElementStyle="{DynamicResource WrapText}" Width="60"/>
+                <DataGridTextColumn Header="{p:Loc Room Type}" Binding="{Binding RoomTypeString}" ElementStyle="{DynamicResource WrapText}" Width="*"/>
+                <DataGridTextColumn Header="{p:Loc Renovated}" Binding="{Binding Renovating}" ElementStyle="{DynamicResource WrapText}" Width="*"/>
+            </DataGrid.Columns>
+            <DataGrid.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding ViewRoomCommand}"/>
+            </DataGrid.InputBindings>
+        </DataGrid>
+
+        <TextBox HorizontalAlignment="Left"
+                     Margin="256,16,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Path=SearchBoxText, UpdateSourceTrigger=PropertyChanged}" 
+                     VerticalAlignment="Top" 
+                     Width="155"
+                     Style="{DynamicResource ManagerSearch}" 
+                     Name="Search"
+                     Tag="{p:Loc Search}"
+                     Height="42"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.ChangeAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        mc:Ignorable="d"
+        Title="ChangeAppointment" Height="450" Width="750">
+    <Grid>
+        <Label Content="Ime pacijenta:" Style="{DynamicResource SecretaryLabel}" Margin="80,73,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Prezime pacijenta:" Style="{DynamicResource SecretaryLabel}" Margin="80,120,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Lekar:" Margin="80,170,0,0" Style="{DynamicResource SecretaryLabel}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Datum:" Margin="80,217,0,0" Style="{DynamicResource SecretaryLabel}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="NAME" TextWrapping="Wrap" Margin="210,69,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Namee, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="SURNAME" TextWrapping="Wrap" Margin="210,120,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Surname, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="Doctors" Margin="210,170,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" ItemsSource="{Binding}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBlock  Margin="2" Text="{Binding name}"/>
+                        <TextBlock Margin="2" Text="{Binding surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker x:Name="DATE" Margin="210,217,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" SelectedDate="{Binding Path=Date, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Content="Otkazi" Style="{DynamicResource SecretaryCancelButton}" Margin="173,306,0,0" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="CancelChangeAppointment_Click"/>
+        <Button Content="Ponudi termin" Style="{DynamicResource SecretaryButtons}" Margin="431,306,0,0" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left"  Click="SuggestAppointments_Click"/>
+    </Grid>
+</Window>

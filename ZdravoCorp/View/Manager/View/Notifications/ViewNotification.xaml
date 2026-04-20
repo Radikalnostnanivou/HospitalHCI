@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Notifications.ViewNotification"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View.Notifications"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="430">
+    <Grid>
+
+        <Label Content="{p:Loc From}" 
+            HorizontalAlignment="Left" 
+            Margin="33,25,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="40"
+            Style="{DynamicResource ManagerLabels}"/>
+
+        <TextBox HorizontalAlignment="Left" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top" 
+                 HorizontalContentAlignment="Left"
+                 VerticalContentAlignment="Top"
+                 Width="202"
+                 Style="{DynamicResource ManagerTextBox}" 
+                 Tag="{p:Loc From}"
+                 Height="40" 
+                 Margin="73,19,0,0"/>
+
+        <Label Content="{p:Loc Date}" 
+            HorizontalAlignment="Left" 
+            Margin="33,84,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="40"
+            Style="{DynamicResource ManagerLabels}"/>
+
+        <TextBox HorizontalAlignment="Left" 
+            TextWrapping="Wrap" 
+            Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Left"
+            VerticalContentAlignment="Top"
+            Width="202"
+            Style="{DynamicResource ManagerTextBox}" 
+            Tag="{p:Loc Date}"
+            Height="40" 
+            Margin="73,78,0,0"/>
+
+        <Label Content="{p:Loc Content}" 
+            HorizontalAlignment="Center" 
+            Margin="0,131,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="75"
+            Style="{DynamicResource ManagerLabels}"
+               Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+        <TextBox HorizontalAlignment="Center" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top" 
+                 HorizontalContentAlignment="Left"
+                 VerticalContentAlignment="Top"
+                 Width="364"
+                 Style="{DynamicResource ManagerSurveyTextBox}" 
+                 Tag="{p:Loc Content}"
+                 Height="458" 
+                 Margin="0,159,0,0"/>
+
+    </Grid>
+</UserControl>

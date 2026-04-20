@@ -1,0 +1,58 @@
+﻿<Window x:Class="ZdravoCorp.View.Doctor.MedicationRequests"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Doctor"
+        mc:Ignorable="d"
+        Title="MedicationRequests" Height="532" Width="1053"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DataGrid x:Name="MedicineGrid" ItemsSource="{Binding}"
+            AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="22,56,541,191">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Medication ID" Binding="{Binding Id}" Width="90"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="80"/>
+                <DataGridTextColumn Header="Manufacturer ID" Binding="{Binding Manufacturer}" Width="115" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="80"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="60"/>
+                <DataGridTextColumn Header="Comment" Binding="{Binding Comment}" Width="60"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="textBlock" HorizontalAlignment="Left" Margin="26,332,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="472" Height="93" RenderTransformOrigin="0.5,0.5" TextChanged="textBlock_TextChanged">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0.044"/>
+                    <RotateTransform Angle="-0.525"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Label Content="Komentar:" HorizontalAlignment="Left" Margin="20,305,0,0" VerticalAlignment="Top" Height="26" RenderTransformOrigin="0.515,1.142"/>
+        <Button x:Name="acceptButton" Content="Accept" HorizontalAlignment="Left" Margin="22,439,0,0" VerticalAlignment="Top" Height="35" Width="91" Click="acceptButton_Click" RenderTransformOrigin="0.33,0.573"/>
+        <Button x:Name="cancelButton" Content="Cancel" HorizontalAlignment="Left" Margin="406,439,0,0" VerticalAlignment="Top" Height="35" Width="90" Click="cancelButton_Click"/>
+        <Button x:Name="rejectButton" Content="Reject" HorizontalAlignment="Left" Margin="211,439,0,0" VerticalAlignment="Top" Height="35" Width="91" Click="rejectButton_Click"/>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="27" VerticalAlignment="Top" Width="1053" BorderBrush="Black" Background="#FFA79F9F">
+            <Image HorizontalAlignment="Left" Height="24" VerticalAlignment="Bottom" Width="22" Source="/Resources/user.png" Margin="841,0,0,0" RenderTransformOrigin="0.818,0.509" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        </Border>
+        <Button x:Name="requestsButton" Content="Medications" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Height="27" Width="105"/>
+        <Button x:Name="appointmentsButton" Content="Appointments" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="100" Click="appointmentsButton_Click"/>
+        <Button x:Name="medsButton" Content="Medical Report" HorizontalAlignment="Left" Margin="403,0,0,0" VerticalAlignment="Top" Height="27" Width="100" Click="medsButton_Click_1"/>
+        <Button x:Name="vacationRequestButton" Content="Vacation Request" HorizontalAlignment="Left" Margin="202,0,0,0" VerticalAlignment="Top" Height="27" Width="99" Click="vacationRequestButton_Click_1"/>
+        <Button x:Name="kartoniButton" Content="Medical Records" HorizontalAlignment="Left" Margin="300,0,0,0" VerticalAlignment="Top" Width="104" Height="27" Click="kartoniButton_Click_1"/>
+        <DataGrid x:Name="MedicineGrid1" ItemsSource="{Binding}"
+            AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="522,56,35,62">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Medication ID" Binding="{Binding Id}" Width="120"/>
+                <DataGridTextColumn Header="Count" Binding="{Binding Count}" Width="60"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="80"/>
+                <DataGridTextColumn Header="Manufacturer ID" Binding="{Binding Manufacturer}" Width="115" />
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="90"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

@@ -1,0 +1,50 @@
+﻿<Window x:Class="ZdravoCorp.View.Doctor.VacationRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Doctor"
+        mc:Ignorable="d"
+        Title="VacationRequest" Height="522" Width="1023"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <GroupBox HorizontalAlignment="Left" Height="427" Header="Informacije:" Margin="20,43,0,0" VerticalAlignment="Top" Width="416" BorderBrush="#FF688CAF"/>
+
+        <DatePicker x:Name="datePicker1" HorizontalAlignment="Left" Margin="186,71,0,0" VerticalAlignment="Top" Width="214" Height="31"/>
+        <DatePicker x:Name="datePicker2" HorizontalAlignment="Left" Margin="186,123,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Height="31" Width="214" FirstDayOfWeek="Monday" IsTodayHighlighted="True">
+            <DatePicker.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DatePicker.RenderTransform>
+        </DatePicker>
+        <CheckBox x:Name="checkBox" Content="Emergency" HorizontalAlignment="Left" Margin="299,167,0,0" VerticalAlignment="Top" Height="30" Width="119" FontSize="16" RenderTransformOrigin="0.311,0.568"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="46,212,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="354" Height="171"/>
+        <Button x:Name="posaljiButton" Content="Send Request" HorizontalAlignment="Left" Margin="50,405,0,0" VerticalAlignment="Top" Width="98" Height="49" Click="posaljiButton_Click"/>
+        <Button x:Name="odustaniButton" Content="Cancel" HorizontalAlignment="Left" Margin="305,405,0,0" VerticalAlignment="Top" Height="49" Width="97" Click="odustaniButton_Click"/>
+        <Label Content="Vacation Start Date:" HorizontalAlignment="Left" Margin="46,76,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vacation End Date:" HorizontalAlignment="Left" Margin="46,125,0,0" VerticalAlignment="Top"/>
+        <Label Content="Vacation Cause:" HorizontalAlignment="Left" Margin="46,181,0,0" VerticalAlignment="Top"/>
+        <Border BorderThickness="1" HorizontalAlignment="Center" Height="27" VerticalAlignment="Top" Width="1023" BorderBrush="Black" Background="#FFA79F9F">
+            <Image HorizontalAlignment="Left" Height="24" VerticalAlignment="Center" Width="22" Source="/Resources/user.png" MouseLeftButtonDown="Image_MouseLeftButtonDown" Margin="990,0,0,0" RenderTransformOrigin="0.818,0.509"/>
+        </Border>
+        <Button x:Name="requestsButton" Content="Medications" HorizontalAlignment="Left" Margin="99,0,0,0" VerticalAlignment="Top" Height="27" Width="104" Click="requestsButton_Click"/>
+        <Button x:Name="appointmentsButton" Content="Appointments" HorizontalAlignment="Left" VerticalAlignment="Top" Height="27" Width="100" Click="appointmentsButton_Click"/>
+        <Button x:Name="medsButton" Content="Medical Report" HorizontalAlignment="Left" Margin="301,0,0,0" VerticalAlignment="Top" Height="27" Width="100" Click="medsButton_Click"/>
+        <Button x:Name="vacationRequestButton" Content="Vacation Request" HorizontalAlignment="Left" Margin="203,0,0,0" VerticalAlignment="Top" Height="27" Width="99"/>
+        <Button x:Name="kartoniButton" Content="Medical Records" HorizontalAlignment="Left" Margin="399,0,0,0" VerticalAlignment="Top" Width="103" Click="kartoniButton_Click" Height="27"/>
+        <DataGrid x:Name="vacationsGrid" ItemsSource="{Binding}"
+            AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="470,58,39,101">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Start Date" Binding="{Binding VacationStartDate}" Width="120"/>
+                <DataGridTextColumn Header="End Date" Binding="{Binding VacationEndDate}" Width="120"/>
+                <DataGridTextColumn Header="Status" Binding="{Binding Status}" Width="120" />
+                <DataGridTextColumn Header="Comment" Binding="{Binding Comment}" Width="130" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Edit" HorizontalAlignment="Left" Margin="468,405,0,0" VerticalAlignment="Top" Height="49" Width="98"/>
+
+    </Grid>
+</Window>

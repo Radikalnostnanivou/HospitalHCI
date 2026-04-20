@@ -1,0 +1,28 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.View.Survey.AppointmentSurveyView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Patient.View.Survey"
+        mc:Ignorable="d"
+        Title="Ocena pregleda" Height="400" Width="550">
+    <Grid>
+        <Label Content="Molimo da ocenite sledeće stavke ocenama od 1 do 5, gde je 1 najlošija ocena, a 5 najbolja" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,26,0,0"/>
+        <Label Content="Profesionalnost doktora" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,74,0,0"/>
+        <Label Content="Ljubaznost doktora" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,105,0,0"/>
+        <Label Content="Udobnost pregleda" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,136,0,0"/>
+        <Label Content="Udobnost prostorije" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,167,0,0"/>
+        <Label Content="Urednost" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,198,0,0"/>
+        <Label Content="Kratko vreme čekanja" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,229,0,0"/>
+        <Label Content="Sveukupni utisak" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,260,0,0"/>
+        <ComboBox x:Name="ProfesionalismCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,78,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=Profesionalism, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="KindnessCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,109,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=Kindness, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="ComfortCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,140,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=Comfort, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="RoomComfortCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,171,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=RoomComfort, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="TidinessCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,202,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=Tidiness, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="WaitingTimeCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,233,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=WaitingTime, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="OverallExperienceCB" Width="120" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="313,264,0,0" ItemsSource="{Binding}" SelectedValue="{Binding Path=OverallExperience, UpdateSourceTrigger=PropertyChanged}"/>
+        <Button Style="{DynamicResource BlueButton}" Content="Potvrdi" Click="Confirm_Click" HorizontalAlignment="Left" Height="40" Margin="293,319,0,0" VerticalAlignment="Top" Width="80"/>
+        <Button Style="{DynamicResource CancelButton}" Content="Odustani" Click="Cancel_Click" HorizontalAlignment="Left" Height="40" Margin="148,319,0,0" VerticalAlignment="Top" Width="80"/>
+    </Grid>
+</Window>

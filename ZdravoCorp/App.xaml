@@ -1,0 +1,16 @@
+﻿<Application x:Class="ZdravoCorp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:ZdravoCorp"
+             xmlns:managerViewModel="clr-namespace:ZdravoCorp.View.Manager.ViewModel"
+             xmlns:managerView="clr-namespace:ZdravoCorp.View.Manager.View"
+             StartupUri="View/MainWindow.xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Styles/ManagerStylesDark.xaml"/>
+                <ResourceDictionary Source="View/Styles/Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

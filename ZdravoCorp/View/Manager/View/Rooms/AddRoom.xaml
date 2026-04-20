@@ -1,0 +1,122 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Rooms.AddRoom"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="430">
+    <Grid>
+        <Label Content="{p:Loc Designation Code}" 
+            HorizontalAlignment="Center" 
+            Margin="0,12,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="116"
+            Style="{DynamicResource ManagerLabels}"
+               Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+        <TextBox HorizontalAlignment="Center"
+                 Margin="0,40,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding Path=Identifier, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top" 
+                 Width="388"
+                 Style="{DynamicResource ManagerTextBox}" 
+                 Name="Designation"
+                 Tag="{p:Loc Designation_Code}"
+                 Height="46"
+                 />
+
+        <Label Content="{p:Loc Surface Area}" 
+            HorizontalAlignment="Left" 
+            Margin="68,105,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="86"
+            Style="{DynamicResource ManagerLabels}"
+               Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+        <TextBox HorizontalAlignment="Left"
+            Margin="21,138,0,0" 
+            TextWrapping="Wrap" 
+            Text="{Binding Size, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" 
+            Width="173"
+            Style="{DynamicResource ManagerTextBox}" 
+            x:Name="Size"
+            Tag="{p:Loc Size}"
+            Height="46"
+            />
+
+        <Label Content="{p:Loc Floor}" 
+            HorizontalAlignment="Left" 
+            Margin="304,105,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="40"
+            Style="{DynamicResource ManagerLabels}"
+               Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+        <TextBox HorizontalAlignment="Left"
+            Margin="235,138,0,0" 
+            TextWrapping="Wrap" 
+            Text="{Binding Floor, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" 
+            Width="173"
+            Style="{DynamicResource ManagerTextBox}" 
+            x:Name="Size_Copy"
+            Tag="{p:Loc Floor}"
+            Height="46"
+            />
+
+
+        <Label Content="{p:Loc Room Type}" 
+               HorizontalAlignment="Center" 
+               Margin="0,203,0,0" 
+               VerticalAlignment="Top" 
+               HorizontalContentAlignment="Center" 
+               Width="78"
+               Style="{DynamicResource ManagerLabels}"
+               Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+        <ComboBox x:Name="RoomTypes" 
+                  HorizontalAlignment="Left" 
+                  Margin="21,231,0,0" 
+                  Style="{DynamicResource ManagerComboBox}"
+                  VerticalAlignment="Top" 
+                  Width="337"
+                  ItemsSource="{Binding Types}"
+                  SelectedItem="{Binding SelectedRoomType}"
+                  FontFamily="/Resources/Fonts/#Poppins"
+                  Height="45" 
+                  ItemContainerStyle="{DynamicResource ManagerComboBoxItem}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Background="Transparent" Text="{Binding Name}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <Button Content="{p:Loc Add}" 
+                HorizontalAlignment="Left" 
+                Margin="363,231,0,0" 
+                VerticalAlignment="Top" 
+                Height="45" 
+                Style="{DynamicResource ManagerButtons}"
+                Command="{Binding CreateRoomTypeCommand}"
+                Width="46"/>
+
+        <Button Content="{p:Loc Add}" 
+                HorizontalAlignment="Left" 
+                Margin="360,587,0,0" 
+                VerticalAlignment="Top" 
+                Height="47" 
+                Width="46"
+                Command="{Binding CreateCommand}"
+                Style="{DynamicResource ManagerButtons}"/>
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,19 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.View.Allergies.AllergiesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Patient.View.Allergies"
+        mc:Ignorable="d"
+        Height="350" Width="600">
+    <Grid Background="White" >
+        <Label Content="Drugi alergeni" Margin="43,167,0,0"/>
+        <Label Content="Alergije na lekove" Margin="43,30,0,0"/>
+        <TextBox  HorizontalAlignment="Left" Height="85" Margin="43,61,0,0" TextWrapping="Wrap" Text="{Binding Path=Medicine}" VerticalAlignment="Top" Width="215"/>
+        <TextBox HorizontalAlignment="Left" Height="85" Margin="43,198,0,0" TextWrapping="Wrap" Text="{Binding Path=Other}" VerticalAlignment="Top" Width="215"/>
+        <Label Content="Beleške" HorizontalAlignment="Left" Height="26" Margin="350,30,0,0" VerticalAlignment="Top" Width="110"/>
+        <TextBox HorizontalAlignment="Left" Height="132" Margin="350,61,0,0" TextWrapping="Wrap" Text="{Binding Path=Note, Mode=TwoWay}" VerticalAlignment="Top" Width="208"/>
+        <Button Content="Odustani" Command="{Binding CancelCommand}" Style="{DynamicResource CancelButton}" HorizontalAlignment="Left" Height="40" Margin="316,243,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Sačuvaj" Command="{Binding CancelCommand}" Style="{DynamicResource BlueButton}" HorizontalAlignment="Left" Height="40" Margin="454,243,0,0" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

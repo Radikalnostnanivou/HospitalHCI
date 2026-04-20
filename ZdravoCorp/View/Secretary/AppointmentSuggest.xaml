@@ -1,0 +1,21 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.AppointmentSuggest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        mc:Ignorable="d"
+        Title="AppointmentSuggest" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="SuggestionTable" ItemsSource="{Binding}" Margin="0,25,0,94"  Style="{DynamicResource SecretaryTables}"
+                              AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Vreme" Binding="{Binding startDate}" Width="*"/>
+                <DataGridTextColumn Header="Soba" Binding="{Binding Room.DesignationCode}" Width="*"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Otkazi zakazivanje" Margin="201,364,0,0" Style="{DynamicResource SecretaryCancelButton}" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="CancelSuggestion_Click"/>
+        <Button Content="Zakazi termin" Style="{DynamicResource SecretaryButtons}" Margin="471,364,0,0" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="AddAppointment_Click"/>
+    </Grid>
+</Window>

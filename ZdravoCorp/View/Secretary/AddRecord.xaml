@@ -1,0 +1,38 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.AddRecord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        mc:Ignorable="d"
+        Title="AddRecord" Height="490" Width="820">
+    <Grid>
+        <Label Content="Visina:" Style="{DynamicResource SecretaryLabel}" Margin="81,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Tezina:" Style="{DynamicResource SecretaryLabel}" Margin="81,75,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Krvna grupa:" Style="{DynamicResource SecretaryLabel}" Margin="81,116,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Alergeni:" Style="{DynamicResource SecretaryLabel}" Margin="81,174,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Komentari:" Style="{DynamicResource SecretaryLabel}" Margin="86,304,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox TextWrapping="Wrap" Margin="197,24,0,0" Height="37" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Heightt, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="197,69,0,0" Height="37" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Weight, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="BloodTypes" Margin="197,116,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" ItemsSource="{Binding}">
+
+        </ComboBox>
+        <DataGrid Style="{DynamicResource SecretaryTables}" x:Name="AllergensTable" ItemsSource="{Binding }" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="197,147,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" Height="105" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Opis" Binding="{Binding }" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Style="{DynamicResource SecretaryTables}" x:Name="CommentsTable" ItemsSource="{Binding Path=CommentList, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" AlternationCount="2"  Margin="197,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" Height="105">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Komentar" Binding="{Binding Comment}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Style="{DynamicResource SecretaryButtons}" Content="Završi pravljenje" Height="50"  Margin="468,394,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="AddRecord_Click"/>
+        <TextBox TextWrapping="Wrap" Margin="563,147,0,0" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Height="37"/>
+        <TextBox TextWrapping="Wrap" Margin="563,272,10,125" Text="{Binding Path=Comment, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Height="37"/>
+        <Button Style="{DynamicResource SecretaryButtons}" Content="Dodaj alergen" Margin="616,192,0,0" Click="AddAllergen_Click" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Style="{DynamicResource SecretaryButtons}" Content="Dodaj komentar" Margin="616,322,0,0" Click="AddComment_Click" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Style="{DynamicResource SecretaryCancelButton}" Content="Odustani" Height="50"  Margin="257,394,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="MedicalRecordCancel_Click"/>
+
+    </Grid>
+</Window>

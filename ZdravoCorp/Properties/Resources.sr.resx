@@ -1,0 +1,447 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ActionDoesntExist" xml:space="preserve">
+    <value>Akcija ne postoji u bazi</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Dodaj</value>
+  </data>
+  <data name="Add Equipment" xml:space="preserve">
+    <value>Dodaj Opremu</value>
+  </data>
+  <data name="Add Equipment Type" xml:space="preserve">
+    <value>Dodaj Tip Opreme</value>
+  </data>
+  <data name="Add Medication" xml:space="preserve">
+    <value>Dodaj lek</value>
+  </data>
+  <data name="Add Medication Type" xml:space="preserve">
+    <value>Dodaj tip leka</value>
+  </data>
+  <data name="Add Room" xml:space="preserve">
+    <value>Dodaj sobu</value>
+  </data>
+  <data name="Add Room Type" xml:space="preserve">
+    <value>Dodaj tip sobe</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Kolicina</value>
+  </data>
+  <data name="AnamnesisDoesntExist" xml:space="preserve">
+    <value>Anamneza ne postoji</value>
+  </data>
+  <data name="AnamnesisExists" xml:space="preserve">
+    <value>Anamneza vec postoji</value>
+  </data>
+  <data name="Appointments" xml:space="preserve">
+    <value>Termini</value>
+  </data>
+  <data name="Change" xml:space="preserve">
+    <value>Izmeni</value>
+  </data>
+  <data name="Change Medication" xml:space="preserve">
+    <value>Izmeni lek</value>
+  </data>
+  <data name="Change Renovation" xml:space="preserve">
+    <value>Izmena renovacije</value>
+  </data>
+  <data name="Change Reservation" xml:space="preserve">
+    <value>Izmena rezervacije</value>
+  </data>
+  <data name="Combine" xml:space="preserve">
+    <value>Spoj</value>
+  </data>
+  <data name="Combine Rooms" xml:space="preserve">
+    <value>Spoj soba</value>
+  </data>
+  <data name="Combine with" xml:space="preserve">
+    <value>Spoj sa</value>
+  </data>
+  <data name="Content" xml:space="preserve">
+    <value>Sadrzaj</value>
+  </data>
+  <data name="Count" xml:space="preserve">
+    <value>Kolicina</value>
+  </data>
+  <data name="Create PDF" xml:space="preserve">
+    <value>Kreiraj PDF</value>
+  </data>
+  <data name="Current Room" xml:space="preserve">
+    <value>Trenutna soba</value>
+  </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Dnevni broj korisnika</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="Days" xml:space="preserve">
+    <value>Dani u nedelji</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Izbrisi</value>
+  </data>
+  <data name="Delete Replacement" xml:space="preserve">
+    <value>Obrisi zamenu</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Opis</value>
+  </data>
+  <data name="Designation" xml:space="preserve">
+    <value>Sifra</value>
+  </data>
+  <data name="Designation Code" xml:space="preserve">
+    <value>Sifra</value>
+  </data>
+  <data name="Designation for new Room" xml:space="preserve">
+    <value>Sifra za novu sobu</value>
+  </data>
+  <data name="Disposable" xml:space="preserve">
+    <value>Potrosna</value>
+  </data>
+  <data name="Doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="DoctorTypeDoesntExists" xml:space="preserve">
+    <value>Tip doktora ne postoji</value>
+  </data>
+  <data name="DoctorTypeExists" xml:space="preserve">
+    <value>Tip doktora vec postoji</value>
+  </data>
+  <data name="Duration" xml:space="preserve">
+    <value>Trajanje</value>
+  </data>
+  <data name="Employees" xml:space="preserve">
+    <value>Zaposleni</value>
+  </data>
+  <data name="Employess" xml:space="preserve">
+    <value>Zaposleni</value>
+  </data>
+  <data name="End" xml:space="preserve">
+    <value>Kraj</value>
+  </data>
+  <data name="End Date" xml:space="preserve">
+    <value>Kranji datum</value>
+  </data>
+  <data name="Equipment" xml:space="preserve">
+    <value>Oprema</value>
+  </data>
+  <data name="Equipment Type" xml:space="preserve">
+    <value>Tip Opreme</value>
+  </data>
+  <data name="EquipmentDoesntExist" xml:space="preserve">
+    <value>Oprema ne postoji u bazi</value>
+  </data>
+  <data name="EquipmentDoesntExists" xml:space="preserve">
+    <value>Tip opreme ne postoji u bazi</value>
+  </data>
+  <data name="EquipmentNameExists" xml:space="preserve">
+    <value>Ime opreme vec postoji</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Greska</value>
+  </data>
+  <data name="Floor" xml:space="preserve">
+    <value>Sprat</value>
+  </data>
+  <data name="From" xml:space="preserve">
+    <value>Od</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Pocetna</value>
+  </data>
+  <data name="IngredientDoesExist" xml:space="preserve">
+    <value>Sastojak vec postoji</value>
+  </data>
+  <data name="IngredientDoesntExist" xml:space="preserve">
+    <value>Sastojak ne postoji</value>
+  </data>
+  <data name="Is Renovating Now" xml:space="preserve">
+    <value>Renovira se trenutno</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jezik</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Lokacija</value>
+  </data>
+  <data name="Manufacturer" xml:space="preserve">
+    <value>Proizvodjac</value>
+  </data>
+  <data name="Max" xml:space="preserve">
+    <value>Max</value>
+  </data>
+  <data name="Max surface" xml:space="preserve">
+    <value>Maksimalna povrsina</value>
+  </data>
+  <data name="Medication" xml:space="preserve">
+    <value>Lek</value>
+  </data>
+  <data name="Medication Type" xml:space="preserve">
+    <value>Tip leka</value>
+  </data>
+  <data name="Medication Types" xml:space="preserve">
+    <value>Tipovi lekova</value>
+  </data>
+  <data name="MedicationTypeDoesExist" xml:space="preserve">
+    <value>Tip leka vec postoji</value>
+  </data>
+  <data name="MedicationTypeDoesntExist" xml:space="preserve">
+    <value>Tip leka ne postoji</value>
+  </data>
+  <data name="Medicine" xml:space="preserve">
+    <value>Lek</value>
+  </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Mesecni broj korisnika</value>
+  </data>
+  <data name="Move" xml:space="preserve">
+    <value>Pomeri</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ime</value>
+  </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Plata</value>
+  </data>
+  <data name="Pending Request" xml:space="preserve">
+    <value>Neobradjen zahtev</value>
+  </data>
+  <data name="Rejected Request" xml:space="preserve">
+    <value>Obijen zahtev</value>
+  </data>
+  <data name="Renovate" xml:space="preserve">
+    <value>Renoviraj</value>
+  </data>
+  <data name="Renovate Room" xml:space="preserve">
+    <value>Renoviraj sobu</value>
+  </data>
+  <data name="Renovated" xml:space="preserve">
+    <value>Renoviran</value>
+  </data>
+  <data name="Renovations" xml:space="preserve">
+    <value>Renovacije</value>
+  </data>
+  <data name="Replacement" xml:space="preserve">
+    <value>Zamena</value>
+  </data>
+  <data name="Requests" xml:space="preserve">
+    <value>Zahtev</value>
+  </data>
+  <data name="Reservation" xml:space="preserve">
+    <value>Reservacija</value>
+  </data>
+  <data name="Reservations" xml:space="preserve">
+    <value>Rezervacije</value>
+  </data>
+  <data name="Reserved" xml:space="preserve">
+    <value>Zakazan</value>
+  </data>
+  <data name="Room" xml:space="preserve">
+    <value>Soba</value>
+  </data>
+  <data name="Room Type" xml:space="preserve">
+    <value>Tip sobe</value>
+  </data>
+  <data name="RoomDesignationExists" xml:space="preserve">
+    <value>Sifra sobe vec postoji</value>
+  </data>
+  <data name="RoomIdDoesntExist" xml:space="preserve">
+    <value>Soba ne postoji u bazi</value>
+  </data>
+  <data name="Rooms" xml:space="preserve">
+    <value>Sobe</value>
+  </data>
+  <data name="RoomTypeAlreadyExists" xml:space="preserve">
+    <value>Tip sobe vec postoji</value>
+  </data>
+  <data name="RoomTypeDoesntExists" xml:space="preserve">
+    <value>Tip sobe ne postoji u bazi</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Pretrazi</value>
+  </data>
+  <data name="Selected Room" xml:space="preserve">
+    <value>Izabrana soba</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Podesavanja</value>
+  </data>
+  <data name="Size" xml:space="preserve">
+    <value>Velicina</value>
+  </data>
+  <data name="Split" xml:space="preserve">
+    <value>Podeli</value>
+  </data>
+  <data name="Split Room" xml:space="preserve">
+    <value>Podeli sobu</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Pocetak</value>
+  </data>
+  <data name="Start Date" xml:space="preserve">
+    <value>Pocetni datum</value>
+  </data>
+  <data name="Start Time" xml:space="preserve">
+    <value>Pocetno vreme</value>
+  </data>
+  <data name="Statistics" xml:space="preserve">
+    <value>Statistika</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="Surface Area" xml:space="preserve">
+    <value>Povrsina</value>
+  </data>
+  <data name="Survey" xml:space="preserve">
+    <value>Izvestaj ankete</value>
+  </data>
+  <data name="Surveys" xml:space="preserve">
+    <value>Ankete</value>
+  </data>
+  <data name="Theme" xml:space="preserve">
+    <value>Stil</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Vreme</value>
+  </data>
+  <data name="To" xml:space="preserve">
+    <value>Do</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Tip</value>
+  </data>
+  <data name="Types" xml:space="preserve">
+    <value>Tipovi</value>
+  </data>
+  <data name="UserDoesntExist" xml:space="preserve">
+    <value>Korisnik ne postoji</value>
+  </data>
+  <data name="UserExists" xml:space="preserve">
+    <value>Korisnik vec postoji</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Korisnici</value>
+  </data>
+  <data name="ViewSurvey" xml:space="preserve">
+    <value>Prikaz ankete</value>
+  </data>
+</root>

@@ -1,0 +1,36 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.MedicalRecord.Anamnesis"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Patient.MedicalRecord"
+        mc:Ignorable="d"
+        Title="Izveštaj" Height="400" Width="750">
+    <Grid>
+        <Label Content="Pacijent" Style="{DynamicResource PatientLabel}" Margin="36,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Datum" Style="{DynamicResource PatientLabel}" Margin="36,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Doktor" Style="{DynamicResource PatientLabel}" Margin="375,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Odeljenje" Style="{DynamicResource PatientLabel}" Margin="375,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="Patient" Style="{DynamicResource PatientLabel}" Margin="134,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="Date" Style="{DynamicResource PatientLabel}" Margin="134,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="Doctor" Style="{DynamicResource PatientLabel}" Margin="473,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label x:Name="DoctorType" Style="{DynamicResource PatientLabel}"  Margin="473,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <GridSplitter Height="3" Width="700" Margin="0,75,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Label Content="Vrsta pregleda" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="36,108,0,0" VerticalAlignment="Top"/>
+        <Label Content="Dijagnoza" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="36,166,0,0" VerticalAlignment="Top"/>
+        <Label Content="Terapija" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="36,252,0,0" VerticalAlignment="Top"/>
+        <GridSplitter Height="250" Width="4" Margin="504,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label x:Name="AppointmentType" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="202,108,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Diagnosis" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="202,166,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="Presciption" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" Margin="202,252,0,0" VerticalAlignment="Top"/>
+        <Button  
+             Style="{DynamicResource BlueButton}"
+             Click="AppointmentSurvey_Click" Content="Oceni pregled" HorizontalAlignment="Left" Width="120" Height="40" Margin="568,318,0,0" VerticalAlignment="Top"/>
+        <Label Content="Beleška" Style="{DynamicResource PatientLabel}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="531,108,0,0"/>
+        <TextBox x:Name="Note" TextWrapping="Wrap" Margin="531,142,0,0"  Height="124" Width="180" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button  
+            Style="{DynamicResource BlueButton}"
+            Click="SaveNote_Click" Content="Sacuvaj belešku" HorizontalAlignment="Left" Width="120" Height="40" Margin="568,266,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

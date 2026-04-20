@@ -1,0 +1,128 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.Appointments.AddAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Zakazivanje"
+        Height="450" 
+        Width="800"
+        >
+    <Grid>
+        <ComboBox 
+            Style="{DynamicResource ComboBox}"
+            x:Name ="DoctorsCB"
+            HorizontalAlignment="Left" 
+            Margin="153,148,0,0" 
+            VerticalAlignment="Top" 
+            Width="171"
+            ItemsSource="{Binding}" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBlock  Margin="2" Text="{Binding name}"/>
+                        <TextBlock Margin="2" Text="{Binding surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label 
+            Style="{DynamicResource PatientLabel}"
+            Content="Datum" 
+            HorizontalAlignment="Left" 
+            Margin="54,72,0,0" 
+            VerticalAlignment="Top"/>
+        <DatePicker 
+            Margin="153,58,476,322"
+            SelectedDateFormat="Short"
+            FirstDayOfWeek="Monday"
+            IsTodayHighlighted="True"
+            Name="datePicker">
+            <DatePicker.BlackoutDates>
+                <CalendarDateRange End="{x:Static sys:DateTime.Today}" Start="{x:Static sys:DateTime.MinValue}" />
+            </DatePicker.BlackoutDates>
+        </DatePicker>
+        <Label 
+            Style="{DynamicResource PatientLabel}"
+            Content="Doktor" 
+            HorizontalAlignment="Left" 
+            Margin="54,144,0,0" 
+            VerticalAlignment="Top" 
+            RenderTransformOrigin="0.092,0.233"/>
+        <Label 
+            Style="{DynamicResource PatientLabel}"
+            Content="Prioritet" 
+            HorizontalAlignment="Left" 
+            Margin="54,219,0,0" 
+            VerticalAlignment="Top" RenderTransformOrigin="0.46,0.618"/>
+        <RadioButton 
+            Style="{DynamicResource RadioButtonCanSelect}"
+            
+            Name="DateRB"
+            Content="Datum" 
+            HorizontalAlignment="Left"
+            Margin="153,230,0,0" 
+            VerticalAlignment="Top"
+            IsChecked="True" />
+        <RadioButton 
+            Style="{DynamicResource RadioButtonCanSelect}"
+            Name ="DoctorRB"
+            Content="Doktor" 
+            HorizontalAlignment="Left" 
+            Margin="153,268,0,0" 
+            VerticalAlignment="Top"/>
+        <DataGrid
+            Style="{DynamicResource PatientTables}"
+            AlternationCount="2"
+            Name ="TableForSuggestedApp"
+            ItemsSource="{Binding}" 
+            Margin="400,58,26,118"
+            AutoGenerateColumns="False"
+            SelectionMode="Single" 
+            IsReadOnly="True" 
+            
+            >
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name ="Doctor" Header="Doktor" Binding="{Binding doctor.nameSurname}" Width="*">
+                </DataGridTextColumn>
+                <DataGridTextColumn x:Name ="Start" Header="Pocetak" Binding="{Binding startDate}" Width="*"/>
+                <DataGridTextColumn x:Name ="End" Header="Kraj" Binding="{Binding endDate}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button 
+                Style="{DynamicResource BlueButton}"
+                Content="Prikaži" 
+                HorizontalAlignment="Left" 
+                Margin="153,335,0,0" 
+                VerticalAlignment="Top"
+                Height="30"
+                Width="80"
+                Click="Search_Click"
+                />
+        <CheckBox Content="Notifikacije" 
+                  HorizontalAlignment="Left" 
+                  Margin="695,335,0,0" 
+                  VerticalAlignment="Top"
+                  IsChecked="True"/>
+        <Button 
+                Style="{DynamicResource CancelButton}"
+                Content="Odustani" 
+                HorizontalAlignment="Left"
+                Margin="587,378,0,0" 
+                VerticalAlignment="Top"
+                Height="30"
+                Width="80"
+                Click="Cancel_Click"/>
+        <Button 
+                Style="{DynamicResource BlueButton}"
+                Content="Potvrdi" 
+                HorizontalAlignment="Left" 
+                Margin="695,378,0,0"
+                VerticalAlignment="Top"
+                Height="30"
+                Width="80"
+                Click="Confirm_Click"/>
+
+    </Grid>
+</Window>

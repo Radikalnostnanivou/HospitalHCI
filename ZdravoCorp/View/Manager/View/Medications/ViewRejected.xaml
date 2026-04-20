@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Medications.ViewRejected"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View.Medications"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d" 
+             d:DesignHeight="667" d:DesignWidth="430">
+    <ScrollViewer>
+        <Grid Height="1028" Width="430">
+
+            <Label Content="{p:Loc Error}" 
+                HorizontalAlignment="Center" 
+                Margin="0,32,0,0" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Center" 
+                Width="35"
+                Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+                Margin="30,66,0,0" 
+                TextWrapping="Wrap" 
+                Text="{Binding Comment, UpdateSourceTrigger=PropertyChanged}"
+                VerticalAlignment="Top" 
+                Width="364"
+                Style="{DynamicResource ManagerTextBox}" 
+                Tag="{p:Loc Error}"
+                Height="102"/>
+
+            <Label Content="{p:Loc Name}" 
+                HorizontalAlignment="Center" 
+                Margin="0,184,0,0" 
+                VerticalAlignment="Top" 
+                HorizontalContentAlignment="Center" 
+                Width="46"
+                Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+                     Margin="30,216,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Top" 
+                     Width="364"
+                     Style="{DynamicResource ManagerTextBox}" 
+                     Name="Count"
+                     Tag="{p:Loc Name}"
+                     Height="46"/>
+
+            <Label Content="{p:Loc Manufacturer}" 
+                   HorizontalAlignment="Left" 
+                   Margin="175,276,0,0" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center" 
+                   Width="86"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+                     Margin="30,304,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Path=Manufacturer, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Top" 
+                     Width="364"
+                     Style="{DynamicResource ManagerTextBox}" 
+                     Tag="{p:Loc Manufacturer}"
+                     Height="44"/>
+
+            <Label Content="{p:Loc Description}" 
+                   HorizontalAlignment="Left" 
+                   Margin="181,360,0,0" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center" 
+                   Width="76"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+                     Margin="30,394,0,0" 
+                     TextWrapping="Wrap" 
+                     Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}"
+                     VerticalAlignment="Top" 
+                     Width="364"
+                     Style="{DynamicResource ManagerTextBox}" 
+                     Tag="{p:Loc Description}"
+                     Height="102"/>
+
+            <Label Content="{p:Loc Replacement}" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,511,0,0" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center" 
+                   Width="90"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <ComboBox x:Name="Rooms" 
+                      HorizontalAlignment="Center" 
+                      Margin="0,538,0,0" 
+                      Style="{DynamicResource ManagerComboBox}"
+                      VerticalAlignment="Top" 
+                      Width="366"
+                      ItemsSource="{Binding MedicationTypes}"
+                      SelectedItem="{Binding SelectedReplacement}"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      Height="46" 
+                      ItemContainerStyle="{DynamicResource ManagerComboBoxItem}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Background="Transparent" Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <DataGrid x:Name="EquipmentTable" 
+                          ItemsSource="{Binding ReplacementTypes}" 
+                          Margin="33,604,31,272"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single" 
+                          HeadersVisibility="Column"
+                          IsReadOnly="True"
+                          Background="Transparent" 
+                          CanUserResizeRows="False"
+                          FontFamily="/Resources/Fonts/#Poppins"
+                          TextBlock.TextAlignment="Center"
+                          HorizontalContentAlignment="Center"
+                          FontSize="13"
+                          Style="{DynamicResource ManagerTables}"
+                          SelectedItem="{Binding SelectedReplacement}"
+                          BorderThickness="2"
+                          HorizontalGridLinesBrush="Transparent"
+                          VerticalGridLinesBrush="Transparent" 
+                          >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{p:Loc Name}" Binding="{Binding Name}" TextBlock.TextAlignment="Center" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Content="{p:Loc Change Medication}" 
+                    HorizontalAlignment="Left" 
+                    Margin="233,780,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="46" 
+                    Width="166"
+                    Command="{Binding ChangeCommand}"
+                    Style="{DynamicResource ManagerButtons}"/>
+
+            <Button Content="{p:Loc Delete Replacement}" 
+                    HorizontalAlignment="Left" 
+                    Margin="33,780,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="46" 
+                    Width="166"
+                    Command="{Binding DeleteReplacementCommand}"
+                    Style="{DynamicResource ManagerButtons}"/>
+        </Grid>
+    </ScrollViewer>
+</UserControl>

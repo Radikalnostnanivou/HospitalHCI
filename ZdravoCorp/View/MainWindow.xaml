@@ -1,0 +1,109 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="ZdravoCorp.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        Height="600" Width="900"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        Closing="CloseWindow" 
+        WindowStartupLocation="CenterScreen">
+    <Border Background="#222831"
+            CornerRadius="10">
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="34"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBox Width="414"
+                     VerticalContentAlignment="Center"
+                     HorizontalAlignment="Center" Margin="0,190,0,332"
+                     Style="{StaticResource LoginTextBox}"
+                     x:Name="User" Grid.Row="1"/>
+
+            <!--PasswordBox-->
+            <Border CornerRadius="10"
+                    Background="#393E46" 
+                    Margin="243,294,243,228" 
+                    Grid.Row="1">
+                <Grid>
+                    <PasswordBox Margin="1"
+                                     BorderThickness="0"
+                                     Background="Transparent"
+                                     VerticalContentAlignment="Center"
+                                     Padding="5"
+                                     Foreground="#CFCFCF"
+                                     FontFamily="/Resources/Fonts/#Poppins"
+                                     x:Name="PassBox"
+                                     PasswordChanged="OnPasswordChanged"
+                                     Tag="False">
+                    </PasswordBox>
+
+
+                    <TextBlock x:Name="BackBox"
+                                       IsHitTestVisible="False"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Left"
+                                       Margin="10,0,0,0"
+                                       FontSize="11"
+                                       Foreground="DarkGray"
+                                       FontFamily="/Resources/Fonts/#Poppins"
+                                       Text="Password"
+                                       >
+                        <TextBlock.Style>
+                            <Style TargetType="{x:Type TextBlock}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Tag, ElementName=PassBox}" Value="False">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                                <Setter Property="Visibility" Value="Hidden"/>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                </Grid>
+            </Border>
+
+            <Label Content="ZdravoCorp"
+                   HorizontalAlignment="Center" 
+                   Margin="0,76,0,0" 
+                   VerticalAlignment="Top" 
+                   Style="{StaticResource LoginLabels}" 
+                   Grid.Row="1"/>
+
+            <Button Content="Login" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,420,0,0" 
+                    Grid.Row="1" 
+                    VerticalAlignment="Top"
+                    Height="41" 
+                    Width="248"
+                    Style="{StaticResource LoginButton}" 
+                    Click="Login_Click"/>
+
+            <StackPanel Orientation="Horizontal"
+                        Background="Transparent">
+
+                <Label Content="" 
+                       MouseLeftButtonDown="Drag_MouseDown"
+                       Style="{StaticResource LoginLabels}" Width="831" Height="32"/>
+
+                <Button Content="-"
+                    Style="{StaticResource MinimiseButton}" 
+                    Click="Minimize_Click" Width="34" Height="34" />
+                <Button Content="×"
+                    Style="{StaticResource ExitButton}" 
+                    Click="Exit_Click" Width="35" Height="34" />
+
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

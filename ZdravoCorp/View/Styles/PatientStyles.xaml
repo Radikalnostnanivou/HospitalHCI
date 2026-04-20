@@ -1,0 +1,146 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="BlueButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#112847"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="BorderThickness" Value="2,2,2,2"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+    
+    <Style x:Key="CancelButton" TargetType="{x:Type Button}">
+        <Setter Property="Background" Value="#BD1212"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="BorderThickness" Value="2,2,2,2"/>
+        <Setter Property="BorderBrush" Value="White"/>
+        <Style.Resources>
+            <Style TargetType="{x:Type Border}">
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </Style.Resources>
+    </Style>
+    
+    <Style x:Key="ComboBox" TargetType="{x:Type ComboBox}">
+        
+    </Style>
+    <Style x:Key="InfoTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="Foreground" Value="#112847"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="BorderBrush" Value="#112847"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="PatientLabel" TargetType="{x:Type Label}">
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="Foreground" Value="#112847"/>
+    </Style>
+    <Style x:Key="ComboBoxItemTemplate" TargetType="{x:Type StackPanel}">
+        <Setter Property="Background" Value="#0F8587"/>
+    </Style>
+    
+    <Style x:Key="PatientTables" TargetType="DataGrid">
+        
+        <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+        <Setter Property="HorizontalGridLinesBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="RowHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridRowHeader}">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+       
+            <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#112847"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="RowStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+                    <Setter Property="Foreground" Value="#112847"/>
+                    <Setter Property="Height" Value="35"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="#EDFDFD"></Setter>
+                        </Trigger>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="White"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="CadetBlue" />
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#112355" />
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="CellStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#112355" />
+                            <Setter Property="Foreground" Value="White"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="TabsStyle" TargetType="{x:Type TabItem}">
+        
+        <Setter Property="Width" Value="140"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="#112847"/>
+        <Setter Property="Height" Value="30"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Foreground" Value="#112847"/>
+                <Setter Property="BorderBrush" Value="Red"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="RadioButton" TargetType="{x:Type RadioButton}">
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="Foreground" Value="#112847"/>
+        <Setter Property="IsHitTestVisible" Value="False"/>
+    </Style>
+    <Style x:Key="RadioButtonCanSelect" TargetType="{x:Type RadioButton}">
+        <Setter Property="FontFamily" Value="/Resources/Fonts/#Poppins"/>
+        <Setter Property="Foreground" Value="#112847"/>
+    </Style>
+</ResourceDictionary>

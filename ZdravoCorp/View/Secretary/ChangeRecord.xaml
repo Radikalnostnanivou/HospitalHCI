@@ -1,0 +1,39 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.ChangeRecord"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        mc:Ignorable="d"
+        Title="ChangeRecord" Height="490" Width="820">
+    <Grid Margin="0,0,0,0">
+        <Label Content="Visina:" Style="{DynamicResource SecretaryLabel}" Margin="81,35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Tezina:" Style="{DynamicResource SecretaryLabel}" Margin="81,75,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Krvna grupa:" Style="{DynamicResource SecretaryLabel}" Margin="81,116,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Alergeni:" Style="{DynamicResource SecretaryLabel}" Margin="81,174,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Komentari:" Style="{DynamicResource SecretaryLabel}" Margin="86,304,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox TextWrapping="Wrap" Margin="197,24,0,0" Height="37" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Heightt, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox TextWrapping="Wrap" Margin="197,69,0,0" Height="37" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Weight, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="BloodTypes" Margin="197,116,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" ItemsSource="{Binding}">
+
+        </ComboBox>
+        <DataGrid x:Name="AllergensTable" Style="{DynamicResource SecretaryTables}" ItemsSource="{Binding }" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True" Margin="197,147,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" Height="105" AlternationCount="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Opis" Binding="{Binding }" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid x:Name="CommentsTable" Style="{DynamicResource SecretaryTables}" AlternationCount="2" ItemsSource="{Binding Path=CommentList, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" SelectionMode="Single" IsReadOnly="True"  Margin="197,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" Height="105">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Komentar" Binding="{Binding Comment}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Potvrdi izmene" Style="{DynamicResource SecretaryButtons}" Height="50"  Margin="468,404,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="EditRecord_Click"/>
+        <TextBox TextWrapping="Wrap" Margin="563,147,0,0" Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Height="37"/>
+        <TextBox TextWrapping="Wrap" Margin="563,272,10,125" Text="{Binding Path=Comment, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="225" Height="37"/>
+        <Button Content="Dodaj alergen" Style="{DynamicResource SecretaryButtons}" Margin="676,189,0,0" Click="AllergenAdd_Click" Height="50" Width="114" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Content="Dodaj komentar" Style="{DynamicResource SecretaryButtons}" Margin="620,322,0,0"  Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Button Content="Odustani" Style="{DynamicResource SecretaryCancelButton}" Height="50"  Margin="252,404,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="140" Click="Cancel_Click"/>
+
+        <Button Content="Ukloni alergen" Style="{DynamicResource SecretaryCancelButton}" Margin="563,189,0,0" Click="AllergenDelete_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="113" Height="50"/>
+    </Grid>
+</Window>

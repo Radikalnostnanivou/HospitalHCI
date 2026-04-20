@@ -1,0 +1,41 @@
+﻿<Window x:Class="ZdravoCorp.View.Secretary.AddAppointment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Secretary"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="AddAppointment" Height="450" Width="800">
+    <Grid>
+        <Label Content="JMBG:" Style="{DynamicResource SecretaryLabel}" Margin="60,26,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Ime pacijenta:" Style="{DynamicResource SecretaryLabel}" Margin="60,73,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Prezime pacijenta:" Style="{DynamicResource SecretaryLabel}" Margin="60,120,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Lekar:" Margin="60,170,0,0" Style="{DynamicResource SecretaryLabel}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <Label Content="Datum:" Margin="60,222,0,0" Style="{DynamicResource SecretaryLabel}" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <TextBox x:Name="JMBG" TextWrapping="Wrap" Margin="210,26,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Jmbg, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="NAME" TextWrapping="Wrap" Margin="210,69,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox x:Name="SURNAME" TextWrapping="Wrap" Margin="210,120,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" Text="{Binding Path=Surname, UpdateSourceTrigger=PropertyChanged}"/>
+        <ComboBox x:Name="Doctors" Margin="210,170,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="350" ItemsSource="{Binding}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel  Orientation="Horizontal">
+                        <TextBlock  Margin="2" Text="{Binding name}"/>
+                        <TextBlock Margin="2" Text="{Binding surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker x:Name="DATE" Margin="210,217,0,0" Height="27" Width="350" VerticalAlignment="Top" HorizontalAlignment="Left" FirstDayOfWeek="Monday"
+            IsTodayHighlighted="True">
+
+        </DatePicker>
+        <Button Content="Pretrazi" Margin="603,26,0,0" Height="30" Width="140" Style="{DynamicResource SecretaryButtons}" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SearchPatient_Click"/>
+        <Button Content="Otkazi" Style="{DynamicResource SecretaryCancelButton}" Margin="210,311,0,0" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="CancelAddAppointment_Click"/>
+        <Button Content="Ponudi termin" Margin="420,311,0,0" Style="{DynamicResource SecretaryButtons}" Height="50" Width="140" VerticalAlignment="Top" HorizontalAlignment="Left" Click="SuggestAppointments_Click"/>
+        <Label Content="Prioritet pretrage:" Style="{DynamicResource SecretaryLabel}" Margin="60,265,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+        <RadioButton Name="DoctorButton" Style="{DynamicResource SecretaryRadioButton}" Content="Lekar" Margin="242,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" IsChecked="True"/>
+        <RadioButton Name="DateButton" Style="{DynamicResource SecretaryRadioButton}" Content="Datum" Margin="0,270,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" />
+
+    </Grid>
+</Window>

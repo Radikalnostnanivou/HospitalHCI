@@ -1,0 +1,89 @@
+﻿<Window x:Class="ZdravoCorp.View.Patient.View.MedicalHistory.MedicalHistory"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZdravoCorp.View.Patient.View.MedicalHistory"
+        mc:Ignorable="d"
+        Title="Istorija bolesti" Height="400" Width="700">
+    <Grid>
+        <TabControl HorizontalAlignment="Center" Height="320" VerticalAlignment="Center" Width="646">
+            <TabItem Header="Laboratorija" Style="{DynamicResource TabsStyle}">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="59*"/>
+                        <ColumnDefinition Width="261*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid
+                        Style="{DynamicResource PatientTables}"
+                        AlternationCount="2"
+                        Name ="LabAnalysisTable" 
+                        Margin="29,67,29,34"
+                        AutoGenerateColumns="False"
+                        SelectionMode="Single" 
+                        IsReadOnly="True" 
+                        ItemsSource="{Binding Path=LabAnalysis}"
+                        SelectedItem="{Binding SelectedTable}" Grid.ColumnSpan="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name ="AnalysisType" Header="Vrsta analize" Binding="{Binding Path=AnalysisType}" Width="*">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name ="Date" Header="Datum" Binding="{Binding Path=Date}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Content="Prikaži ceo izveštaj" Command="{Binding LabResultsCommand}" Click="Button_Click" Style="{DynamicResource BlueButton}" HorizontalAlignment="Left" Height="40" Margin="29,18,0,0" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Operacije"  Style="{DynamicResource TabsStyle}">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75*"/>
+                        <ColumnDefinition Width="53*"/>
+                    </Grid.ColumnDefinitions>
+                    <DataGrid
+                        Style="{DynamicResource PatientTables}"
+                        AlternationCount="2"
+                        Name ="OperationsTable" 
+                        Margin="29,67,29,34"
+                        AutoGenerateColumns="False"
+                        SelectionMode="Single" 
+                        IsReadOnly="True" 
+                        ItemsSource="{Binding Path=Operations}" Grid.ColumnSpan="2"
+                        >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name ="OperationType" Header="Vrsta operacije" Binding="{Binding Path=OperationType}" Width="*">
+                            </DataGridTextColumn>
+                            <DataGridTextColumn x:Name ="Doctor" Header="Doktor" Binding="{Binding Path=Doctor}" Width="*"/>
+                            <DataGridTextColumn x:Name ="DateOperation" Header="Datum" Binding="{Binding Path=Date}" Width="*"/>
+                            <DataGridTextColumn x:Name ="Duration" Header="Trajanje" Binding="{Binding Path=Duration}" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBox HorizontalAlignment="Left" Height="30" Margin="116,20,0,0" TextWrapping="Wrap" Text="Pretraga" TextAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Top" Width="120" Style="{DynamicResource InfoTextBox}" Grid.Column="1"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Hronične bolesti"  Style="{DynamicResource TabsStyle}">
+                <Grid Background="White">
+                    <Label Content="Pregled horničnih bolesti" Style="{DynamicResource PatientLabel}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,20,0,0" />
+                    <DataGrid
+                        Style="{DynamicResource PatientTables}"
+                        AlternationCount="2"
+                        Name ="ChronicDeseasesTable" 
+                        Margin="29,67,29,34"
+                        AutoGenerateColumns="False"
+                        SelectionMode="Single" 
+                        IsReadOnly="True" 
+                        ItemsSource="{Binding Path=ChronicDeseases}"
+                        >
+                        <DataGrid.Columns>
+                            <DataGridTextColumn x:Name ="ChronicDesease"  Binding="{Binding Path=Desease}" Width="*"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+    </Grid>
+</Window>

@@ -1,0 +1,249 @@
+﻿<UserControl x:Class="ZdravoCorp.View.Manager.View.Rooms.ViewRoom"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ZdravoCorp.View.Manager.View"
+             xmlns:p="clr-namespace:ZdravoCorp.View.Core"
+             mc:Ignorable="d"
+             d:DesignHeight="667" d:DesignWidth="430">
+    <ScrollViewer>
+        <Grid Height="1028" Width="430" >
+
+            <Label Content="{p:Loc Designation Code}" 
+            HorizontalAlignment="Center" 
+            Margin="0,15,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="116"
+            Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Center"
+                 Margin="0,43,0,0" 
+                 TextWrapping="Wrap" 
+                 Text="{Binding Path=Identifier, UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top" 
+                 Width="348"
+                 Style="{DynamicResource ManagerTextBox}" 
+                 Name="Designation"
+                 Tag="{p:Loc Designation}"
+                 Height="46"
+                 />
+
+            <Label Content="{p:Loc Surface Area}" 
+            HorizontalAlignment="Left" 
+            Margin="76,110,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="84"
+            Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+            Margin="41,138,0,0" 
+            TextWrapping="Wrap" 
+            Text="{Binding Size, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" 
+            Width="153"
+            Style="{DynamicResource ManagerTextBox}" 
+            x:Name="Size"
+            Tag="{p:Loc Size}"
+            Height="46"
+            />
+
+            <Label Content="{p:Loc Floor}" 
+            HorizontalAlignment="Left" 
+            Margin="292,110,0,0" 
+            VerticalAlignment="Top" 
+            HorizontalContentAlignment="Center" 
+            Width="40"
+            Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <TextBox HorizontalAlignment="Left"
+            Margin="235,138,0,0" 
+            TextWrapping="Wrap" 
+            Text="{Binding Floor, UpdateSourceTrigger=PropertyChanged}"
+            VerticalAlignment="Top" 
+            Width="154"
+            Style="{DynamicResource ManagerTextBox}" 
+            x:Name="Size_Copy"
+            Tag="{p:Loc Floor}"
+            Height="46"
+            />
+
+            <Label Content="{p:Loc Room Type}" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,204,0,0" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center" 
+                   Width="76"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <ComboBox x:Name="Types" 
+                      HorizontalAlignment="Center" 
+                      Style="{DynamicResource ManagerComboBox}"
+                      Margin="0,232,0,0" 
+                      VerticalAlignment="Top" 
+                      Width="348"
+                      ItemsSource="{Binding Types}"
+                      SelectedIndex="{Binding SelectedEquipment}"
+                      SelectedItem="{Binding Type}"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      Height="45"
+                      ItemContainerStyle="{DynamicResource ManagerComboBoxItem}">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Background="Transparent" Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+            <Button Content="{p:Loc Change}" 
+                    HorizontalAlignment="Left" 
+                    Margin="219,295,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="47" 
+                    Width="170"
+                    Command="{Binding ChangeCommand}"
+                    Style="{DynamicResource ManagerButtons}"/>
+
+            <Label Content="{p:Loc Equipment}" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,404,0,0" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center"
+                   FontSize="20"
+                   Width="114"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"/>
+
+            <DataGrid x:Name="EquipmentTable" 
+                      ItemsSource="{Binding Equipments}" 
+                      Margin="32,438,33,414" 
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single" 
+                      IsReadOnly="True"
+                      Background="Transparent" 
+                      CanUserResizeRows="False"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      TextBlock.TextAlignment="Left"
+                      FontSize="13"
+                      Style="{DynamicResource ManagerTables}"
+                      BorderThickness="2"
+                      HorizontalGridLinesBrush="Transparent"
+                      VerticalGridLinesBrush="Transparent" 
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{p:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="{p:Loc Count}" Binding="{Binding Count}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="{p:Loc Appointments}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center"
+                   FontSize="20"
+                   Width="149"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"
+                   Margin="0,620,0,0"/>
+
+            <DataGrid x:Name="AppointmentTable" 
+                      ItemsSource="{Binding Appointments}" 
+                      Margin="32,660,33,192" 
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single" 
+                      IsReadOnly="True"
+                      Background="Transparent" 
+                      CanUserResizeRows="False"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      TextBlock.TextAlignment="Left"
+                      FontSize="13"
+                      Style="{DynamicResource ManagerTables}"
+                      BorderThickness="2"
+                      HorizontalGridLinesBrush="Transparent"
+                      VerticalGridLinesBrush="Transparent" 
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{p:Loc Start_Time}" Binding="{Binding StartDateString}" Width="125"/>
+                    <DataGridTextColumn Header="{p:Loc Doctor}" Binding="{Binding NameSurname}" Width="*"/>
+                    <DataGridTextColumn Header="{p:Loc Duration}" Binding="{Binding Duration}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Label Content="{p:Loc Medicine}" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   HorizontalContentAlignment="Center"
+                   FontSize="20"
+                   Width="96"
+                   Style="{DynamicResource ManagerLabels}"
+                   Foreground="{DynamicResource ManagerLabelForeground}"
+                   Margin="0,838,0,0"/>
+
+            <DataGrid x:Name="MedicineTable" 
+                      ItemsSource="{Binding Medications}" 
+                      Margin="32,878,33,-24" 
+                      AutoGenerateColumns="False"
+                      SelectionMode="Single" 
+                      IsReadOnly="True"
+                      Background="Transparent" 
+                      CanUserResizeRows="False"
+                      FontFamily="/Resources/Fonts/#Poppins"
+                      TextBlock.TextAlignment="Left"
+                      FontSize="13"
+                      Style="{DynamicResource ManagerTables}"
+                      BorderThickness="2"
+                      HorizontalGridLinesBrush="Transparent"
+                      VerticalGridLinesBrush="Transparent" 
+                      >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="{p:Loc Name}" Binding="{Binding Name}" Width="*"/>
+                    <DataGridTextColumn Header="{p:Loc Manufacturer}" Binding="{Binding Manufacturer}" Width="*"/>
+                    <DataGridTextColumn Header="{p:Loc Count}" Binding="{Binding Count}" Width="*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Content="{p:Loc Delete}" 
+                    HorizontalAlignment="Left" 
+                    Margin="41,295,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="47" 
+                    Width="169"
+                    Command="{Binding DeleteCommand}"
+                    Style="{DynamicResource ManagerButtons}"/>
+
+            <Button Content="{p:Loc Renovate}" 
+                    HorizontalAlignment="Center" 
+                    Margin="0,357,0,0" 
+                    VerticalAlignment="Top" 
+                    Height="47" 
+                    Width="90"
+                    Command="{Binding RenovateCommand}"
+                    Style="{DynamicResource ManagerButtons}"/>
+
+            <Button Content="{p:Loc Split Room}" 
+                HorizontalAlignment="Left" 
+                Margin="41,357,0,0" 
+                VerticalAlignment="Top" 
+                Height="47" 
+                Width="124"
+                Command="{Binding SplitCommand}"
+                Style="{DynamicResource ManagerButtons}"/>
+
+            <Button Content="{p:Loc Combine Rooms}" 
+                HorizontalAlignment="Left" 
+                Margin="265,357,0,0" 
+                VerticalAlignment="Top"
+                Height="47" 
+                Width="124"
+                Command="{Binding CombineCommand}"
+                Style="{DynamicResource ManagerButtons}"/>
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>
